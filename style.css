@@ -36,9 +36,9 @@ a:hover {text-decoration:underline dotted; color:#dd720b;}
 .navig a:visited {color:#cecece;}
 .navig a:hover {text-decoration:none;color:#dd720b;padding:0 5px 0 5px;}
 /* --------------- */
-.main {white-space:nowrap;padding:5px;}  
+.main {white-space:nowrap;padding:5px;display: flex}  
 .main div{display:inline-block;}
-.left {width:200px;float: left;margin-right: 10px;}
+.left {width:200px;margin-right: 10px;}
 .right {width: calc(100% - 212px);}
 
 .block {width: 100%; background:#212121; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
