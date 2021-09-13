@@ -19,8 +19,7 @@ body {
     border-radius: 3px;
     overflow:hidden;
 }  
-.header {white-space:nowrap;padding:5px;}  
-.header div {display:inline-block;}
+.header {white-space:nowrap;padding:5px;display: flex;}  
 
 hr {border:0px; border-top:3px dotted #9d4109; margin:4px;padding-bottom:6px;}
 a:link {text-decoration:none; color:#9d4109;}
@@ -36,8 +35,7 @@ a:hover {text-decoration:underline dotted; color:#dd720b;}
 .navig a:visited {color:#cecece;}
 .navig a:hover {text-decoration:none;color:#dd720b;padding:0 5px 0 5px;}
 /* --------------- */
-.main {white-space:nowrap;padding:5px;display: flex}  
-.main div{display:inline-block;}
+.main {white-space:nowrap;padding:5px;display: flex;} 
 .left {width:200px;margin-right: 10px;}
 .right {width: calc(100% - 212px);}
 
