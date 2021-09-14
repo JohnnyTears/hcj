@@ -35,6 +35,10 @@ nav a:active {color:#cecece;}
 nav a:visited {color:#cecece;}
 nav a:hover {text-decoration:none;color:#dd720b;padding:0 5px 0 5px;}
 /* --------------- */
+
+.catalog {list-style-type: none;padding: 0px; margin: 0px;}
+.catalog li {padding: ;}
+
 .middle {white-space:nowrap;padding:5px;display: flex;} 
 aside {width:200px;margin-right: 10px;}
 main {width: calc(100% - 212px);}
@@ -42,7 +46,8 @@ main {width: calc(100% - 212px);}
 section {width: 100%; background:#212121; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
 .block {width: 100%; background:#212121; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
 .block1 {width: Calc(100% - 10px); background:#181818; background: linear-gradient(to bottom, #181818, #131313); padding:5px;border-bottom: solid 1px #101010;}
-.news {}
-.content {width: 100%; padding:5px;}
+.content {width: 100%; padding:5px;display: flex;}
+.info {background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010; padding: 3px;text-align: justify;}
+.img1 {background:#181818;width:80px; height:80px;box-shadow: 0 0 3px #381601;border: solid 1px #181818;margin-right: 10px;}
 
 footer {display: flex;white-space:nowrap;background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010; padding: 10px;text-align: justify;}
