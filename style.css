@@ -58,4 +58,35 @@ section {width: 100%;}
 .info {background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010; padding: 3px;text-align: justify;font-size:8pt;}
 .info1 {text-align: justify;font-size:8pt;}
 
+.grid {
+    width: 100%; background:#181818; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;
+    align-items: flex-start;
+    display: grid;
+    grid-template: 
+        [start] "item1 item2" 30px [row2]
+        [row2] "item1 item3" 70px [row3]
+        [row] "item1 item4" 22px [row-end] / 122px 1fr
+    ;
+}
+.item1 {
+    grid-area: item1;
+}
+.item2 {
+    font-size:14pt;
+    padding: 5px;
+    grid-area: item2;
+}
+.item3 {
+    padding: 5px;
+    grid-area: item3;
+}
+.item4 {
+    font-size:8pt;
+    padding: 5px;
+    grid-area: item4;
+}
+.img3 {
+    background:#181818;width:110px; height:110px;box-shadow: 0 0 3px #381601;border: solid 1px #181818;margin:5px;
+}
+
 footer {display: flex;white-space:nowrap;background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010; padding: 10px;text-align: justify;}
