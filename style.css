@@ -27,7 +27,7 @@ a:active {text-decoration:none; color:#9d4109;}
 a:visited {text-decoration:none; color:#9d4109;}
 a:hover {text-decoration:underline dotted; color:#dd720b;}
 
-.menu {padding: 10px; margin:5px;background:#181818; background: linear-gradient(to bottom, #181818, #131313); border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;}
+nav {padding: 10px; margin:5px;background:#181818; background: linear-gradient(to bottom, #181818, #131313); border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;}
 /* Navig */
 nav a {color:#cecece;padding:0 5px 0 5px; font-size:10pt;}
 nav a:link {color:#cecece;}
@@ -37,17 +37,25 @@ nav a:hover {text-decoration:none;color:#dd720b;padding:0 5px 0 5px;}
 /* --------------- */
 
 .catalog {list-style-type: none;padding: 0px; margin: 0px;}
-.catalog li {padding: ;}
+.catalog li {padding: 0px;}
 
 .middle {white-space:nowrap;padding:5px;display: flex;} 
 aside {width:200px;margin-right: 10px;}
 main {width: calc(100% - 212px);}
 
-section {width: 100%; background:#212121; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
+section {width: 100%;}
 .block {width: 100%; background:#212121; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
 .block1 {width: Calc(100% - 10px); background:#181818; background: linear-gradient(to bottom, #181818, #131313); padding:5px;border-bottom: solid 1px #101010;}
 .content {width: 100%; padding:5px;display: flex;}
-.info {background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010; padding: 3px;text-align: justify;}
 .img1 {background:#181818;width:80px; height:80px;box-shadow: 0 0 3px #381601;border: solid 1px #181818;margin-right: 10px;}
+
+.block2 {display: flex;width: 100%; background:#181818; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
+.right {display: grid;max-height: 100px;padding-top: 5px;padding-left: 3px;}
+.block3 {width: Calc(100% - 10px); font-size:14pt;}
+.content1 {width: 100%; display: flex;}
+.img2 {background:#181818;width:100px; height:100px;box-shadow: 0 0 3px #381601;border: solid 1px #181818;margin:5px;}
+
+.info {background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010; padding: 3px;text-align: justify;font-size:8pt;}
+.info1 {text-align: justify;font-size:8pt;}
 
 footer {display: flex;white-space:nowrap;background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010; padding: 10px;text-align: justify;}
