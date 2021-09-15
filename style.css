@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 body {    font-family: 'Open Sans', sans-serif;font-size:9pt; color:#cecece; padding:0px; margin:3px; background:#353535;}
-.bg {background:#212121; box-shadow: 0 0 3px #381601; max-width: 1000px; margin-left: auto; margin-right: auto; margin-top: 0%; padding: 0px; border: solid 1px #181818; border-radius: 3px; overflow:hidden;}  
+.bg {background:#212121; box-shadow: 0 0 3px #381601; max-width: 1000px; min-width: 500px; margin-left: auto; margin-right: auto; margin-top: 0%; padding: 0px; border: solid 1px #181818; border-radius: 3px; overflow:hidden;}  
 .header {white-space:nowrap;padding:5px;display: box;}
 .logo {display: flex;}  
 
@@ -22,12 +22,13 @@ nav a:hover {text-decoration:none;color:#dd720b;padding:0 5px 0 5px;}
 .catalog {list-style-type: none;padding: 0px; margin: 0px;}
 .catalog li {padding: 0px;}
 
-.middle {white-space:nowrap;padding:5px;display: flex;} 
+.middle {white-space: nowrap; padding:5px;display: flex;} 
+@media (max-width: 650px) {.middle {display: block;}}
 .side {width:250px;margin-right: 10px;}
-.section {width: 100%;margin-right: 3px;}
 .block {width: 100%; background:#212121; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
 .name {width: Calc(100% - 10px); background:#181818; background: linear-gradient(to bottom, #181818, #131313); padding:5px;border-bottom: solid 1px #101010;}
 .box-content {width: 100%; padding:5px;}
+.section {width: 100%;margin-right: 3px;}
 .grid { width: 100%; background:#181818; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px; align-items: flex-start; display: flex;}
 .item {display:flex; flex-direction:column; flex-grow:1; height:112px; margin: 5px;}
 .title {font-size:14pt; padding: 5px; }
