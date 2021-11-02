@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="StyleSheet" href="./style.css" />
+    <link type="text/css" rel="StyleSheet" href="./light.css">
+    <link type="text/css" rel="StyleSheet" href="./dark.css" id="theme-link">
     <title>New Site</title>
   </head>
   <body>
@@ -17,7 +18,7 @@
 
         <main class="middle">
             <aside class="side">
-                <div class="block">
+                <aside class="block">
                     <div class="name">Каталог</div>
                     <div class="content">
                         <ul class="catalog">
@@ -26,15 +27,12 @@
                             <li><a href="">Запчасти к колонкам</a></li>
                         </ul>
                     </div>
-                </div>
-                
-                <div class="block">
+                </aside>
+                <aside class="block">
                     <div class="name">Title</div> 
                     <div class="box-content">Content</div>
-                </div>
-                
+                </aside>    
             </aside>
-                        
             <section class="section">
                 <section class="grid">
                     <img src="/" class="img"/>
@@ -65,8 +63,9 @@
         </main>
 
         <footer class="footer">
-            <div> &copy; <a href="/">wolfmanstr</a></div> <div>&#10070;2021</div>
+            <div> &copy; <a href="/">wolfmanstr</a></div> <div><div class="theme-button" id="theme-button">Change theme</div></div>
         </footer>
     </div>
+    <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
