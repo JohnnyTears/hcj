@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body {text-shadow: 1px 1px 1px black; font-family: 'Roboto';font-size:9pt; color:#cecece; padding:0px; margin:5px; background:#595959;}
+body {text-shadow: 1px 1px 1px black; font-family: 'Roboto';font-size:9pt; color:#cecece; padding:0px; margin:5px; background:#595959; background: radial-gradient(circle, rgba(59,59,59,1) 0%, rgba(35,35,35,1) 100%);}
 .bg {background:#212121; box-shadow: 0 0 3px #381601; max-width: 1000px; min-width: 500px; margin-left: auto; margin-right: auto; margin-top: 0%; padding: 0px; border: solid 1px #181818; border-radius: 3px; overflow:hidden;}  
 .header {white-space:nowrap;padding:5px;display: box;}
 .logo {display: flex;}
