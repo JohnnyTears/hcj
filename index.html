@@ -1,4 +1,43 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -35,7 +74,7 @@
             </aside>
             <section class="section">
                 <section class="grid">
-                    <img src="/" class="img"/>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23808080'%3E%3Cpath d='M19.5 3A2.502 2.502 0 0 0 17 5.5c0 .691.278 1.316.73 1.77L5.77 19.23a2.5 2.5 0 0 0 3.536 3.536L21.27 10.77a2.5 2.5 0 0 0 1.77.73 2.502 2.502 0 0 0 2.5-2.5A2.502 2.502 0 0 0 23 6.5a2.502 2.502 0 0 0-2.5-2.5c-.691 0-1.316.278-1.77.73L6.77 16.73a2.5 2.5 0 0 0-3.536-3.536L15.23 1.23A2.5 2.5 0 0 0 13.5 0C12.12 0 11 1.12 11 2.5s1.12 2.5 2.5 2.5c.691 0 1.316-.278 1.77-.73L3.27 16.73a2.5 2.5 0 0 0 0 3.536 2.5 2.5 0 0 0 3.536 0L18.73 8.27c.454.452 1.079.73 1.77.73A2.502 2.502 0 0 0 23 6.5c0-1.38-1.12-2.5-2.5-2.5z'/%3E%3C/svg%3E" class="img theme-img" alt="No Image"/>
                     <div class="item">
                        <div class="title">Title</div>
                        <div class="content">ContentContentContent ContentContent Content
@@ -44,7 +83,7 @@
                     </div>
                 </section>
                 <section class="grid">
-                    <img src="/" class="img"/>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23808080'%3E%3Cpath d='M19.5 3A2.502 2.502 0 0 0 17 5.5c0 .691.278 1.316.73 1.77L5.77 19.23a2.5 2.5 0 0 0 3.536 3.536L21.27 10.77a2.5 2.5 0 0 0 1.77.73 2.502 2.502 0 0 0 2.5-2.5A2.502 2.502 0 0 0 23 6.5a2.502 2.502 0 0 0-2.5-2.5c-.691 0-1.316.278-1.77.73L6.77 16.73a2.5 2.5 0 0 0-3.536-3.536L15.23 1.23A2.5 2.5 0 0 0 13.5 0C12.12 0 11 1.12 11 2.5s1.12 2.5 2.5 2.5c.691 0 1.316-.278 1.77-.73L3.27 16.73a2.5 2.5 0 0 0 0 3.536 2.5 2.5 0 0 0 3.536 0L18.73 8.27c.454.452 1.079.73 1.77.73A2.502 2.502 0 0 0 23 6.5c0-1.38-1.12-2.5-2.5-2.5z'/%3E%3C/svg%3E" class="img theme-img" alt="No Image"/>
                     <div class="item">
                        <div class="title">Title</div>
                        <div class="content">ContentContentContent ContentContent Content<br>Content ContentContent ContentContentContent</div>
@@ -52,7 +91,7 @@
                     </div>
                 </section>
                 <section class="grid">
-                    <img src="/" class="img"/>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23808080'%3E%3Cpath d='M19.5 3A2.502 2.502 0 0 0 17 5.5c0 .691.278 1.316.73 1.77L5.77 19.23a2.5 2.5 0 0 0 3.536 3.536L21.27 10.77a2.5 2.5 0 0 0 1.77.73 2.502 2.502 0 0 0 2.5-2.5A2.502 2.502 0 0 0 23 6.5a2.502 2.502 0 0 0-2.5-2.5c-.691 0-1.316.278-1.77.73L6.77 16.73a2.5 2.5 0 0 0-3.536-3.536L15.23 1.23A2.5 2.5 0 0 0 13.5 0C12.12 0 11 1.12 11 2.5s1.12 2.5 2.5 2.5c.691 0 1.316-.278 1.77-.73L3.27 16.73a2.5 2.5 0 0 0 0 3.536 2.5 2.5 0 0 0 3.536 0L18.73 8.27c.454.452 1.079.73 1.77.73A2.502 2.502 0 0 0 23 6.5c0-1.38-1.12-2.5-2.5-2.5z'/%3E%3C/svg%3E" class="img theme-img" alt="No Image"/>
                     <div class="item">
                        <div class="title">Title</div>
                        <div class="content">ContentContentContent ContentContent Content<br>Content ContentContent ContentContentContent</div>
@@ -63,9 +102,11 @@
         </main>
 
         <footer class="footer">
-            <div> &copy; <a href="/">wolfmanstr</a></div> <div><div class="theme-button" id="theme-button">Change theme</div></div>
+            <div> &copy; <a href="/">wolfmanstr</a></div>
+            <div><img class="theme-button" id="theme-button" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23808080'%3E%3Cpath d='M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V18.75A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z'/%3E%3C/svg%3E" alt="Toggle Theme"></div>
         </footer>
     </div>
     <script type="text/javascript" src="script.js"></script>
-    </body>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93569fbb7aace14d',t:'MTc0NTUwODQzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  </body>
 </html>

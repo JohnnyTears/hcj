@@ -1,38 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+function ChangeTheme()
+{
+    let darkTheme = "dark.css";
+    let lightTheme = "light.css";
 
-body {    font-family: 'Open Sans', sans-serif;font-size:9pt; color:#cecece; padding:0px; margin:3px; background:#353535;}
-.bg {background:#212121; box-shadow: 0 0 3px #381601; max-width: 1000px; min-width: 500px; margin-left: auto; margin-right: auto; margin-top: 0%; padding: 0px; border: solid 1px #181818; border-radius: 3px; overflow:hidden;}  
-.header {white-space:nowrap;padding:5px;display: box;}
-.logo {display: flex;}  
+    var currTheme = link.getAttribute("href");
+    var theme = "";
 
-hr {border:0px; border-top:3px dotted #9d4109; margin:4px;padding-bottom:6px;}
-a:link {text-decoration:none; color:#9d4109;}
-a:active {text-decoration:none; color:#9d4109;}
-a:visited {text-decoration:none; color:#9d4109;}
-a:hover {text-decoration:underline dotted; color:#dd720b;}
+    if(currTheme == darkTheme)
+    {
+        currTheme = lightTheme;
+        theme = "light";
+    }
+    else
+    {    
+        currTheme = darkTheme;
+        theme = "dark";
+    }
 
-/* Navig */
-nav {padding:10px; background:#181818; background: linear-gradient(to bottom, #181818, #131313); border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;}
-nav a {color:#cecece;padding:0 5px 0 5px; font-size:10pt;}
-nav a:link {color:#cecece;}
-nav a:active {color:#cecece;}
-nav a:visited {color:#cecece;}
-nav a:hover {text-decoration:none;color:#dd720b;padding:0 5px 0 5px;}
-/* --------------- */
-.catalog {list-style-type: none;padding: 0px; margin: 0px;}
-.catalog li {padding: 0px;}
+    link.setAttribute("href", currTheme);
+    localStorage.setItem("theme", theme); // Save theme to localStorage
+}
 
-.middle {white-space: nowrap; padding:5px;display: flex;} 
-@media (max-width: 650px) {.middle {display: block;}}
-.side {width:250px;margin-right: 10px;}
-.block {width: 100%; background:#212121; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px;}
-.name {width: Calc(100% - 10px); background:#181818; background: linear-gradient(to bottom, #181818, #131313); padding:5px;border-bottom: solid 1px #101010;}
-.box-content {width: 100%; padding:5px;}
-.section {width: 100%;margin-right: 3px;}
-.grid { width: 100%; background:#181818; border: solid 1px #101010;border-radius: 3px;box-shadow: 0 0 3px #381601;margin-bottom: 10px; align-items: flex-start; display: flex;}
-.item {display:flex; flex-direction:column; flex-grow:1; height:112px; margin: 5px;}
-.title {font-size:14pt; padding: 5px; }
-.content {padding: 5px; flex: 1 1 auto;}
-.info {font-size:8pt; padding: 5px;}
-.img {background:#353535;background: linear-gradient(to bottom, #191919, #0f0f0f); width:110px; height:110px;box-shadow: 0 0 3px #381601;border: solid 1px #181818;margin:5px;}
-.footer {display: flex; white-space:nowrap;justify-content:space-between; background:#181818; background: linear-gradient(to bottom, #181818, #131313); border:0px; border-top:1px#101010;padding: 10px;text-align: justify;}
+// Load saved theme on page load
+window.onload = function() {
+    var savedTema = localStorage.getItem("theme");
+    if (savedTema === "light") {
+        link.setAttribute("href", "light.css");
+    } else {
+        link.setAttribute("href", "dark.css");
+    }
+};
