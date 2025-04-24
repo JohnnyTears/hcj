@@ -181,16 +181,17 @@ nav a:hover {
 }
 
 .theme-button {
-    width: 28px;
-    height: 28px;
-    background: #d1d5db;
-    border-radius: 50%;
-    padding: 4px;
+    width: 24px;
+    height: 24px;
+    background: none;
     cursor: pointer;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .theme-button:hover {
+    opacity: 0.8;
+}
+
+.theme-button:focus {
     background: #9ca3af;
-    opacity: 0.9;
+    box-shadow: 0 0 5px #3b82f6;
 }
