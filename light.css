@@ -160,7 +160,7 @@ nav a:hover {
 }
 .img {
     background: #e5e7eb;
-    background: linear-gradient(to bottom, #d1d5db, #9카3af);
+    background: linear-gradient(to bottom, #d1d5db, #9ca3af);
     width: 110px;
     height: 110px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -171,6 +171,7 @@ nav a:hover {
     display: flex;
     white-space: nowrap;
     justify-content: space-between;
+    align-items: center;
     background: #f3f4f6;
     background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
     border: 0px;
@@ -180,12 +181,16 @@ nav a:hover {
 }
 
 .theme-button {
-    width: 24px;
-    height: 24px;
-    background: none;
+    width: 28px;
+    height: 28px;
+    background: #d1d5db;
+    border-radius: 50%;
+    padding: 4px;
     cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .theme-button:hover {
-    opacity: 0.8;
+    background: #9ca3af;
+    opacity: 0.9;
 }
